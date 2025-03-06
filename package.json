@@ -1,6 +1,6 @@
 {
   "name": "@aniojs/node-fs-resolve",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Anio Software <info@anio.software>",
   "description": "Resolve a path.",
   "license": "MIT",
