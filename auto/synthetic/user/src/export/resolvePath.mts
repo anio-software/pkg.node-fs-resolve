@@ -7,8 +7,6 @@ import type {PathType} from "@aniojs/node-fs-path-type"
 
 import {resolvePathFactory as factory} from "#~synthetic/user/export/resolvePathFactory.mts"
 
-let __fnImplementation: any = null
-
 /**
  * @brief Asynchronously resolve a path.
  * @description
@@ -20,7 +18,7 @@ let __fnImplementation: any = null
  * @param expectedPathType The type of path expected (optional).
  */
 export async function resolvePath(inputPath: string, expectedPathType?: PathType|PathType[]) : Promise<string> {
-	if (__fnImplementation === null) __fnImplementation = factory(createContext());
+	const __fnImplementation = factory(createContext())
 
 	return await __fnImplementation(inputPath, expectedPathType)
 }
