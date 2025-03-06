@@ -6,6 +6,10 @@ import {getProject} from "@fourtune/realm-js/v0/project"
 import {getTypeOfPathSyncFactory} from "@aniojs/node-fs-path-type"
 // ^^^ dependencies declared via AnioJsDependencies type
 
+// vvv--- types needed for implementation
+import type {PathType} from "@aniojs/node-fs-path-type"
+// ^^^--- types needed for implementation
+
 /**
  * @brief Synchronously resolve a path.
  * @description
@@ -14,9 +18,11 @@ import {getTypeOfPathSyncFactory} from "@aniojs/node-fs-path-type"
  * resulting path is ensured.
  * This function throws if `path` does not exist.
  * @param path The path to be resolved.
+ * @param expectedPathType The type of path expected (optional).
  */
 declare function resolvePathSync(
-	inputPath: string
+	inputPath: string,
+	expectedPathType?: PathType|PathType[]
 ) : string
 
 /**
@@ -47,7 +53,7 @@ export function resolvePathSyncFactory(context: RuntimeWrappedContextInstance) :
 		}
 	}
 
-	return function resolvePathSync(inputPath: string) : string {
-		return implementation(local_context, dependencies, inputPath)
+	return function resolvePathSync(inputPath: string, expectedPathType?: PathType|PathType[]) : string {
+		return implementation(local_context, dependencies, inputPath, expectedPathType)
 	}
 }

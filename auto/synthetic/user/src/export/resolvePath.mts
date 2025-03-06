@@ -1,6 +1,7 @@
 import {createContext} from "@fourtune/realm-js/v0/runtime"
 
 // vvv--- types needed for implementation
+import type {PathType} from "@aniojs/node-fs-path-type"
 /* couldn't find a user defined type named 'Promise' at the top level */
 // ^^^--- types needed for implementation
 
@@ -16,7 +17,8 @@ const fn = factory(createContext())
  * resulting path is ensured.
  * This function throws if `path` does not exist.
  * @param path The path to be resolved.
+ * @param expectedPathType The type of path expected (optional).
  */
-export async function resolvePath(inputPath: string) : Promise<string> {
-	return await fn(inputPath)
+export async function resolvePath(inputPath: string, expectedPathType?: PathType|PathType[]) : Promise<string> {
+	return await fn(inputPath, expectedPathType)
 }

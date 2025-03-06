@@ -2,6 +2,8 @@ import {useContext, type RuntimeWrappedContextInstance} from "@fourtune/realm-js
 
 import {realpath} from "@aniojs-private/node-async-sync-fs/sync"
 
+import type {PathType} from "@aniojs/node-fs-path-type"
+
 import {getTypeOfPathSync as getTypeOfPath} from "@aniojs/node-fs-path-type"
 
 export type AnioJsDependencies = {
@@ -16,11 +18,13 @@ export type AnioJsDependencies = {
  * resulting path is ensured.
  * This function throws if `path` does not exist.
  * @param path The path to be resolved.
+ * @param expectedPathType The type of path expected (optional).
  */
 export function implementation(
 	wrapped_context: RuntimeWrappedContextInstance,
 	dependencies: AnioJsDependencies,
-	inputPath: string
+	inputPath: string,
+	expectedPathType?: PathType|PathType[]
 ) : string {
 	const context = useContext(wrapped_context, 0)
 
@@ -32,6 +36,18 @@ export function implementation(
 		throw new Error(
 			`Path '${inputPath}' does not exist.`
 		)
+	}
+
+	if (expectedPathType) {
+		const validPathTypes = Array.isArray(
+			expectedPathType
+		) ? expectedPathType : [expectedPathType]
+
+		if (!validPathTypes.includes(pathType)) {
+			throw new Error(
+				`Path is not of expected type.`
+			)
+		}
 	}
 
 	let resolvedPath = realpath(inputPath)
