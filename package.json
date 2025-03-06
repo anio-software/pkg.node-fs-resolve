@@ -1,0 +1,37 @@
+{
+  "name": "@aniojs/node-fs-resolve",
+  "version": "0.0.0",
+  "author": "Anio Software <info@anio.software>",
+  "description": "Resolve a path.",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/default/index.min.d.mts",
+      "import": "./dist/default/index.min.mjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aniojs-org/node-fs-resolve.git"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@aniojs-private/node-async-sync-fs": "^0.3.0",
+    "@aniojs/node-fs-path-type": "^1.0.4",
+    "@fourtune/core": "^0.1101.0",
+    "@fourtune/realm-js": "^0.31000.5",
+    "fourtune": "^0.30000.1"
+  },
+  "peerDependencies": {
+    "@types/node": ">=22.7.x"
+  },
+  "scripts": {
+    "prepare": "./node_modules/.bin/fourtune ."
+  },
+  "engines": {
+    "node": ">=22.7.x"
+  },
+  "files": [
+    "./dist/"
+  ]
+}
