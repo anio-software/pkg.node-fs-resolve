@@ -6,7 +6,7 @@ import type {PathType} from "@aniojs/node-fs-path-type"
 
 import {resolvePathSyncFactory as factory} from "#~synthetic/user/export/resolvePathSyncFactory.mts"
 
-const fn = factory(createContext())
+let __fnImplementation: any = null
 
 /**
  * @brief Synchronously resolve a path.
@@ -19,5 +19,7 @@ const fn = factory(createContext())
  * @param expectedPathType The type of path expected (optional).
  */
 export function resolvePathSync(inputPath: string, expectedPathType?: PathType|PathType[]) : string {
-	return fn(inputPath, expectedPathType)
+	if (__fnImplementation === null) __fnImplementation = factory(createContext());
+
+	return __fnImplementation(inputPath, expectedPathType)
 }
