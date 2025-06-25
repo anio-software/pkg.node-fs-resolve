@@ -43,9 +43,7 @@ export async function __implementation(
 //>	const pathType = dependencies.getTypeOfPath(inputPath)
 
 	if (pathType === "nonExisting") {
-		throw new Error(
-			`Path '${inputPath}' does not exist.`
-		)
+		throw new Error(`Path '${inputPath}' does not exist.`)
 	}
 
 	if (expectedPathType) {
@@ -54,9 +52,7 @@ export async function __implementation(
 		) ? expectedPathType : [expectedPathType]
 
 		if (!validPathTypes.includes(pathType)) {
-			throw new Error(
-				`Path is not of expected type.`
-			)
+			throw new Error(`Path is not of expected type.`)
 		}
 	}
 
