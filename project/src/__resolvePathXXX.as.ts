@@ -8,10 +8,10 @@ import {realpath} from "@aniojs-private/node-async-sync-fs/async"
 
 import type {PathType} from "@anio-software/pkg.node-fs-path-type"
 
-import {getTypeOfPath} from "@anio-software/pkg.node-fs-path-type"
-//>import {getTypeOfPathSync as getTypeOfPath} from "@anio-software/pkg.node-fs-path-type"
+import type {getTypeOfPath} from "@anio-software/pkg.node-fs-path-type"
+//>import type {getTypeOfPathSync as getTypeOfPath} from "@anio-software/pkg.node-fs-path-type"
 
-export type AnioJsDependencies = {
+export type __EnkoreFunctionDependencies = {
 	getTypeOfPath: typeof getTypeOfPath
 }
 
@@ -27,10 +27,10 @@ export type AnioJsDependencies = {
  * @param path The path to be resolved.
  * @param expectedPathType The type of path expected (optional).
  */
-export async function implementation(
-//>export function implementation(
+export async function __implementation(
+//>export function __implementationSync(
 	contextOptions: EnkoreJSRuntimeContextOptions,
-	dependencies: AnioJsDependencies,
+	dependencies: __EnkoreFunctionDependencies,
 	inputPath: string,
 	expectedPathType?: PathType|PathType[]
 ) : Promise<string> {
