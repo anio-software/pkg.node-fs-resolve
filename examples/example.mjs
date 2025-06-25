@@ -1,7 +1,7 @@
 import {
 	resolvePath,
 	resolvePathSync
-} from "../dist/default/index.mjs"
+} from "../products/project/dist/default/index.mjs"
 
 console.log(
 	await resolvePath("."),
