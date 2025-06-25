@@ -3,8 +3,8 @@ import {
 	createContext
 } from "@anio-software/enkore.js-runtime"
 
-import {realpath} from "@aniojs-private/node-async-sync-fs/async"
-//>import {realpath} from "@aniojs-private/node-async-sync-fs/sync"
+import {realpath} from "@anio-software/pkg-private.node-consistent-fs/async"
+//>import {realpath} from "@anio-software/pkg-private.node-consistent-fs/sync"
 
 import type {PathType} from "@anio-software/pkg.node-fs-path-type"
 
