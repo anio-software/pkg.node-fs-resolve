@@ -44,6 +44,8 @@ export async function __implementation(
 
 	if (pathType === "nonExisting") {
 		throw new Error(`Path '${inputPath}' does not exist.`)
+	} else if (pathType === "error" || pathType === "link:error") {
+		throw new Error(`Failed to get type of path '${inputPath}'.`)
 	}
 
 	if (expectedPathType) {
