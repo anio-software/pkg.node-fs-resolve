@@ -1,0 +1,8 @@
+# This file is automatically managed by enkore
+# DO NOT ADD ENTRIES HERE, THEY WILL BE REMOVED
+/src/resolvePath.ts
+/src/resolvePathSync.ts
+/export/resolvePathFactory.ts
+/export/resolvePath.ts
+/export/resolvePathSyncFactory.ts
+/export/resolvePathSync.ts
