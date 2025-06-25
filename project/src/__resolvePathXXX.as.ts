@@ -6,10 +6,10 @@ import {
 import {realpath} from "@aniojs-private/node-async-sync-fs/async"
 //>import {realpath} from "@aniojs-private/node-async-sync-fs/sync"
 
-import type {PathType} from "@aniojs/node-fs-path-type"
+import type {PathType} from "@anio-software/pkg.node-fs-path-type"
 
-import {getTypeOfPath} from "@aniojs/node-fs-path-type"
-//>import {getTypeOfPathSync as getTypeOfPath} from "@aniojs/node-fs-path-type"
+import {getTypeOfPath} from "@anio-software/pkg.node-fs-path-type"
+//>import {getTypeOfPathSync as getTypeOfPath} from "@anio-software/pkg.node-fs-path-type"
 
 export type AnioJsDependencies = {
 	getTypeOfPath: typeof getTypeOfPath
