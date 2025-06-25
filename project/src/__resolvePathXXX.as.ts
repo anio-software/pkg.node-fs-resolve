@@ -68,8 +68,8 @@ export async function implementation(
 	}
 
 	if (
-	    pathType === "regularDir" ||
-	    pathType === "linkToDir"
+	    pathType === "dir:regular" ||
+	    pathType === "link:dir"
 	    ) {
 		return `${resolvedPath}/`
 	}
