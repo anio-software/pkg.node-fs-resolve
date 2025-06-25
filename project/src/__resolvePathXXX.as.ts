@@ -1,4 +1,7 @@
-import {useContext, type RuntimeWrappedContextInstance} from "@fourtune/realm-js/runtime"
+import {
+	type EnkoreJSRuntimeContextOptions,
+	createContext
+} from "@anio-software/enkore.js-runtime"
 
 import {realpath} from "@aniojs-private/node-async-sync-fs/async"
 //>import {realpath} from "@aniojs-private/node-async-sync-fs/sync"
@@ -26,13 +29,13 @@ export type AnioJsDependencies = {
  */
 export async function implementation(
 //>export function implementation(
-	wrapped_context: RuntimeWrappedContextInstance,
+	contextOptions: EnkoreJSRuntimeContextOptions,
 	dependencies: AnioJsDependencies,
 	inputPath: string,
 	expectedPathType?: PathType|PathType[]
 ) : Promise<string> {
 //>) : string {
-	const context = useContext(wrapped_context, 0)
+	const context = createContext(contextOptions, 0)
 
 	context.log.debug(`resolving "${inputPath}"`)
 
