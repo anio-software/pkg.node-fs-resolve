@@ -1,6 +1,6 @@
 {
-  "name": "@aniojs/node-fs-resolve",
-  "version": "0.0.3",
+  "name": "@anio-software/pkg.node-fs-resolve",
+  "version": "0.0.0",
   "author": "Anio Software <info@anio.software>",
   "description": "Resolve a path.",
   "license": "MIT",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aniojs-org/node-fs-resolve.git"
+    "url": "git+https://github.com/anio-software/pkg.node-fs-resolve.git"
   },
   "type": "module",
   "devDependencies": {

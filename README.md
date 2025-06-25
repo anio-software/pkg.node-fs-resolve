@@ -1,4 +1,4 @@
-# @aniojs/node-fs-resolve
+# @anio-software/pkg.node-fs-resolve
 
 Resolves a path.
 
