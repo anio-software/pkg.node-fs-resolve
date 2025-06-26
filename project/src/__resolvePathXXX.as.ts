@@ -6,7 +6,10 @@ import {
 import {realpath} from "@anio-software/pkg-private.node-consistent-fs/async"
 //>import {realpath} from "@anio-software/pkg-private.node-consistent-fs/sync"
 
-import type {PathType} from "@anio-software/pkg.node-fs-path-type"
+import {
+	type PathType,
+	convertPathTypeToHumanReadable
+} from "@anio-software/pkg.node-fs-path-type"
 
 import type {getTypeOfPath} from "@anio-software/pkg.node-fs-path-type"
 //>import type {getTypeOfPathSync as getTypeOfPath} from "@anio-software/pkg.node-fs-path-type"
@@ -54,7 +57,14 @@ export async function __implementation(
 		) ? expectedPathType : [expectedPathType]
 
 		if (!validPathTypes.includes(pathType)) {
-			throw new Error(`Path is not of expected type.`)
+			throw new Error(
+				`The path '${inputPath}' is not of a valid type.\n\n` +
+				`Valid type(s): \n\n` +
+				validPathTypes.map(t => {
+					return `    - ${convertPathTypeToHumanReadable(t)} (${t})\n`
+				}).join("") +
+				`\nActual type: ${convertPathTypeToHumanReadable(pathType)} (${pathType})\n`
+			)
 		}
 	}
 
