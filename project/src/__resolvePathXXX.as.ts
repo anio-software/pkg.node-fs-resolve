@@ -7,7 +7,7 @@ import {realpath} from "@anio-software/pkg-private.node-consistent-fs/async"
 //>import {realpath} from "@anio-software/pkg-private.node-consistent-fs/sync"
 
 import {
-	type PathType,
+	type ValidPathType,
 	convertPathTypeToHumanReadable
 } from "@anio-software/pkg.node-fs-path-type"
 
@@ -17,10 +17,6 @@ import type {getTypeOfPath} from "@anio-software/pkg.node-fs-path-type"
 export type __EnkoreFunctionDependencies = {
 	getTypeOfPath: typeof getTypeOfPath
 }
-
-type FilteredPathType = Exclude<
-	PathType, "nonExisting" | "error" | "link:error"
->
 
 /**
  * @brief Asynchronously resolve a path.
@@ -39,7 +35,7 @@ export async function __implementation(
 	contextOptions: EnkoreJSRuntimeContextOptions,
 	dependencies: __EnkoreFunctionDependencies,
 	inputPath: string,
-	expectedPathType?: FilteredPathType|FilteredPathType[]
+	expectedPathType?: ValidPathType|ValidPathType[]
 ) : Promise<string> {
 //>) : string {
 	const context = createContext(contextOptions, 0)
