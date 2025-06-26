@@ -18,6 +18,10 @@ export type __EnkoreFunctionDependencies = {
 	getTypeOfPath: typeof getTypeOfPath
 }
 
+type FilteredPathType = Exclude<
+	PathType, "nonExisting" | "error" | "link:error"
+>
+
 /**
  * @brief Asynchronously resolve a path.
 //> * @brief Synchronously resolve a path.
@@ -35,7 +39,7 @@ export async function __implementation(
 	contextOptions: EnkoreJSRuntimeContextOptions,
 	dependencies: __EnkoreFunctionDependencies,
 	inputPath: string,
-	expectedPathType?: PathType|PathType[]
+	expectedPathType?: FilteredPathType|FilteredPathType[]
 ) : Promise<string> {
 //>) : string {
 	const context = createContext(contextOptions, 0)
