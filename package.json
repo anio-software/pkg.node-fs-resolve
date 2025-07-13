@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "name": "@anio-software/pkg.node-fs-resolve",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Resolve a path.",
   "author": "Anio Software <info@anio.software>",
   "repository": {
